@@ -1,0 +1,29 @@
+DFA TRANSITION DESCRIPTION
+==========================
+
+Project: DFA Pattern Matcher for Water Meter Status Codes from Sensor Logs
+
+Accepted strings (final status codes):
+  OK, LOW, LEAK, TAMPER, ERR
+
+Start state: q0
+Accepting states: the states reached after reading exactly one accepted code.
+Dead state: DEAD (all further input remains in DEAD).
+
+The program constructs the DFA automatically as a trie from the accepted
+status-code strings. Each state has a deterministic transition for every
+uppercase English letter A-Z. Missing transitions lead to DEAD.
+
+High-level transition paths:
+  q0 --O--> state --K--> accepting state       (OK)
+  q0 --L--> state --O--> state --W--> accepting state (LOW)
+  q0 --L--> state --E--> state --A--> state --K--> accepting state (LEAK)
+  q0 --T--> state --A--> state --M--> state --P--> state
+       --E--> state --R--> accepting state     (TAMPER)
+  q0 --E--> state --R--> state --R--> accepting state (ERR)
+
+Any extra character after an accepted code, an unsupported character,
+or an unrecognized sequence is rejected.
+
+Note: Exact generated state names are assigned by the program in sorted
+word order. Run dfa_water_meter.py to inspect the runtime results.

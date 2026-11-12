@@ -1,0 +1,25 @@
+PROJECT DETAILS
+===============
+
+Project Title:
+DFA Pattern Matcher for Water Meter Status Codes from Sensor Logs
+
+Subject:
+Formal Languages and Automata Theory (FLA)
+
+Student Name:
+Mathavan S.
+
+Project Objective:
+To apply a Deterministic Finite Automaton (DFA) to identify and validate
+predefined water-meter status codes from sensor log data.
+
+Accepted Status Codes:
+OK, LOW, LEAK, TAMPER, ERR
+
+Tools:
+Python 3, CSV dataset, Google Colab (optional), VS Code (optional).
+
+Expected Outcome:
+Valid status codes are accepted and unknown or malformed status codes
+are rejected by the DFA.
